@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avishek007549.github.io/love-point-restaurant/sitemap.xml
