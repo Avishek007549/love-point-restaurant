@@ -1,0 +1,2214 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Point Restaurant</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff8f7;
+    color:#29161d;
+}
+a{text-decoration:none;color:inherit}
+
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#170b12;
+    color:white;
+    padding:14px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 4px 20px #0005;
+}
+.logo{
+    font-size:23px;
+    font-weight:900;
+    color:#ff9fbe;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.heart{
+    font-size:34px;
+    color:#ff3d78;
+    text-shadow:0 0 12px #ff3d78;
+}
+nav ul{
+    display:flex;
+    gap:18px;
+    list-style:none;
+}
+nav ul a{
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+}
+nav ul a:hover{color:#ff9fbe}
+
+/* BUTTONS */
+.btn{
+    border:0;
+    border-radius:9px;
+    padding:12px 19px;
+    font-weight:800;
+    cursor:pointer;
+}
+.primary{
+    background:#df3e72;
+    color:white;
+}
+.outline{
+    background:transparent;
+    color:white;
+    border:2px solid white;
+}
+
+/* HERO */
+.hero{
+    min-height:88vh;
+    background:
+    linear-gradient(90deg,#160910e8,#16091055),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+    display:flex;
+    align-items:center;
+    padding:70px 8%;
+    color:white;
+}
+.hero-content{max-width:720px}
+.eyebrow{
+    color:#ff9fbe;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:900;
+}
+.hero h1{
+    font-size:clamp(44px,7vw,78px);
+    line-height:1;
+    margin:16px 0;
+}
+.hero h1 span{color:#ff9fbe}
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+    color:#f8e9ef;
+}
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:28px;
+}
+
+/* SECTIONS */
+.section{padding:80px 7%}
+.title{
+    text-align:center;
+    margin-bottom:42px;
+}
+.title h2{
+    font-size:40px;
+    margin-top:8px;
+}
+.title p{
+    color:#766a6e;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:23px;
+}
+.card{
+    background:#fff;
+    border:1px solid #efdde4;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 25px #401a2510;
+    transition:.3s;
+}
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 35px #401a2520;
+}
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+.card-body{padding:20px}
+.card h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+.card p{
+    color:#756b6e;
+    line-height:1.6;
+}
+.price{
+    display:block;
+    color:#d83b70;
+    font-size:19px;
+    font-weight:900;
+    margin-top:12px;
+}
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:13px 0;
+}
+.tags span{
+    font-size:12px;
+    font-weight:800;
+    background:#fff0f4;
+    color:#963052;
+    border-radius:20px;
+    padding:6px 9px;
+}
+.food{
+    height:180px;
+    display:grid;
+    place-items:center;
+    font-size:68px;
+    background:linear-gradient(135deg,#ffe1eb,#f7eee9);
+}
+
+/* LOUNGE */
+.lounge{background:#fff0f5}
+
+/* GALLERY */
+.gallery{
+    background:#180c12;
+    color:white;
+}
+.gallery .title p{color:#cfc0c7}
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+.gallery-grid figure{
+    position:relative;
+    height:250px;
+    overflow:hidden;
+    border-radius:13px;
+}
+.gallery-grid img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+.gallery-grid figure:hover img{
+    transform:scale(1.08);
+}
+.caption{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:40px 14px 14px;
+    background:linear-gradient(transparent,#000d);
+    font-weight:800;
+}
+
+/* BOOKING */
+.booking{
+    background:#211017;
+    color:white;
+}
+.booking-wrap{
+    max-width:950px;
+    margin:auto;
+}
+.booking .title p{color:#d9cbd1}
+.form{
+    background:white;
+    color:#28171c;
+    border-radius:16px;
+    padding:30px;
+}
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+.field{margin-bottom:16px}
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:6px;
+}
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddcfd5;
+    border-radius:8px;
+    font:inherit;
+}
+.field textarea{resize:vertical}
+
+/* EVENTS */
+.events{background:#fff5f8}
+.event{
+    background:white;
+    border:1px solid #eedde3;
+    border-radius:15px;
+    padding:28px;
+    text-align:center;
+}
+.event-icon{font-size:52px}
+.event h3{
+    margin:12px 0;
+    font-size:23px;
+}
+.event p{
+    color:#756b6e;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+.event button{
+    border:0;
+    background:#24131a;
+    color:white;
+    padding:11px 16px;
+    border-radius:8px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* CTA */
+.cta{
+    margin:20px 7% 70px;
+    padding:45px 7%;
+    border-radius:20px;
+    background:linear-gradient(120deg,#401526,#df3e72);
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+.cta h2{
+    font-size:38px;
+    margin:8px 0;
+}
+
+/* CONTACT */
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+.contact-box{
+    background:white;
+    border:1px solid #eedde3;
+    border-radius:15px;
+    padding:27px;
+}
+.contact-box p{
+    color:#756b6e;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#170b12;
+    color:#ddd;
+    padding:28px 7%;
+    display:flex;
+    justify-content:space-between;
+}
+footer a{
+    color:#ff9fbe;
+    cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#000b;
+    z-index:3000;
+    padding:18px;
+    overflow:auto;
+}
+.modal.show{
+    display:grid;
+    place-items:center;
+}
+.modal-box{
+    width:min(950px,100%);
+    max-height:94vh;
+    overflow:auto;
+    background:#fff8f7;
+    color:#28161d;
+    padding:28px;
+    border-radius:17px;
+    position:relative;
+}
+.close{
+    position:absolute;
+    right:15px;
+    top:7px;
+    border:0;
+    background:none;
+    font-size:32px;
+    cursor:pointer;
+}
+
+/* ADMIN DASHBOARD */
+.admin{
+    background:#f7eef2;
+    border-radius:14px;
+    padding:18px;
+}
+.admin h2{margin-bottom:5px}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+    margin:20px 0;
+}
+.stat{
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    border:1px solid #eadce2;
+}
+.stat b{
+    font-size:28px;
+    display:block;
+    color:#d83b70;
+}
+.stat small{color:#776b70}
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:18px;
+}
+.panel{
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    border:1px solid #eadce2;
+}
+.booking-item{
+    border-left:5px solid #df3e72;
+    background:#fff8fa;
+    border-radius:8px;
+    padding:14px;
+    margin:10px 0;
+    line-height:1.65;
+}
+.delete{
+    border:0;
+    background:#c0392b;
+    color:#fff;
+    padding:7px 11px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:8px;
+}
+.bar{
+    height:10px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+    margin:8px 0 15px;
+}
+.bar i{
+    display:block;
+    height:100%;
+    background:#df3e72;
+}
+.notice{
+    padding:12px;
+    background:#fff1f4;
+    border-radius:8px;
+    color:#8e3150;
+    margin:15px 0;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    nav ul{display:none}
+    .grid{grid-template-columns:1fr 1fr}
+    .gallery-grid{grid-template-columns:1fr 1fr}
+    .admin-grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+    .grid,
+    .row,
+    .contact,
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+    .hero{
+        padding:55px 6%;
+    }
+    .hero h1{font-size:44px}
+    .buttons{flex-direction:column}
+    .cta{display:block}
+    .cta .btn{margin-top:18px}
+    footer{display:block}
+    footer a{
+        display:block;
+        margin-top:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+<div class="logo">
+<span class="heart">♥</span>
+Love Point Restaurant
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#lounge">Lounge</a></li>
+<li><a href="#rooms">Rooms</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#booking">Booking</a></li>
+<li><a href="#events">Functions</a></li>
+</ul>
+
+<button class="btn primary" onclick="go('booking')">
+Book Now
+</button>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+RESTAURANT • LOUNGE • ROOMS • EVENTS
+</div>
+
+<h1>
+Where every moment feels
+<span>special.</span>
+</h1>
+
+<p>
+Welcome to Love Point Restaurant.
+Enjoy delicious food, a beautiful lounge,
+comfortable rooms and professional event
+services for birthdays, weddings, meetings
+and special celebrations.
+</p>
+
+<div class="buttons">
+
+<button class="btn primary"
+onclick="go('booking')">
+🍽️ Book a Table
+</button>
+
+<button class="btn outline"
+onclick="go('gallery')">
+📸 Explore Our Place
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- MENU -->
+<section class="section" id="menu">
+
+<div class="title">
+
+<div class="eyebrow">
+OUR KITCHEN
+</div>
+
+<h2>
+Popular Food & Drinks
+</h2>
+
+<p>
+Fresh favorites for family meals,
+dates and celebrations.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="food">🥟</div>
+<div class="card-body">
+<h3>Special Momo</h3>
+<p>
+Steamed dumplings with signature chutney.
+</p>
+<span class="price">
+Rs. 220
+</span>
+</div>
+</div>
+
+<div class="card">
+<div class="food">🍕</div>
+<div class="card-body">
+<h3>Love Point Pizza</h3>
+<p>
+Cheesy handmade pizza with fresh toppings.
+</p>
+<span class="price">
+Rs. 450
+</span>
+</div>
+</div>
+
+<div class="card">
+<div class="food">🍛</div>
+<div class="card-body">
+<h3>Chicken Biryani</h3>
+<p>
+Fragrant rice with herbs and tender chicken.
+</p>
+<span class="price">
+Rs. 380
+</span>
+</div>
+</div>
+
+<div class="card">
+<div class="food">🍔</div>
+<div class="card-body">
+<h3>Classic Burger</h3>
+<p>
+Grilled patty, vegetables and house sauce.
+</p>
+<span class="price">
+Rs. 300
+</span>
+</div>
+</div>
+
+<div class="card">
+<div class="food">☕</div>
+<div class="card-body">
+<h3>Special Coffee</h3>
+<p>
+Freshly brewed coffee served hot.
+</p>
+<span class="price">
+Rs. 160
+</span>
+</div>
+</div>
+
+<div class="card">
+<div class="food">🍰</div>
+<div class="card-body">
+<h3>Celebration Cake</h3>
+<p>
+Advance-order cakes for special occasions.
+</p>
+<span class="price">
+Rs. 900+
+</span>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- LOUNGE -->
+<section class="section lounge" id="lounge">
+
+<div class="title">
+
+<div class="eyebrow">
+LOVE POINT LOUNGE
+</div>
+
+<h2>
+Relax, Meet & Enjoy
+</h2>
+
+<p>
+Comfortable spaces where guests can spend
+quality time while our team takes care of them.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85"
+alt="Beautiful lounge">
+
+<div class="card-body">
+
+<h3>
+Premium Lounge
+</h3>
+
+<p>
+Soft seating, ambient lighting and a
+relaxed atmosphere.
+</p>
+
+<div class="tags">
+<span>Wi-Fi</span>
+<span>AC</span>
+<span>Music</span>
+<span>Soft Seating</span>
+</div>
+
+<span class="price">
+From Rs. 500 / session
+</span>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=1000&q=85"
+alt="Friends enjoying lounge">
+
+<div class="card-body">
+
+<h3>
+Friends & Music Lounge
+</h3>
+
+<p>
+A social space for friends, snacks
+and relaxed conversations.
+</p>
+
+<div class="tags">
+<span>Sound</span>
+<span>AC</span>
+<span>Snacks</span>
+</div>
+
+<span class="price">
+From Rs. 700 / session
+</span>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=85"
+alt="Couple enjoying time">
+
+<div class="card-body">
+
+<h3>
+Couple Corner
+</h3>
+
+<p>
+Quiet and comfortable seating
+for dates and special moments.
+</p>
+
+<div class="tags">
+<span>Private Seating</span>
+<span>Wi-Fi</span>
+<span>AC</span>
+</div>
+
+<span class="price">
+From Rs. 600 / session
+</span>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- ROOMS -->
+<section class="section" id="rooms">
+
+<div class="title">
+
+<div class="eyebrow">
+STAY WITH US
+</div>
+
+<h2>
+Comfortable Rooms
+</h2>
+
+<p>
+Sample rates — replace these with your
+actual room rates before publishing.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=85"
+alt="Deluxe room">
+
+<div class="card-body">
+
+<h3>
+Deluxe Room
+</h3>
+
+<p>
+Comfortable room for 1–2 guests.
+</p>
+
+<div class="tags">
+<span>AC</span>
+<span>Wi-Fi</span>
+<span>TV</span>
+<span>Attached Bath</span>
+<span>Hot Water</span>
+</div>
+
+<span class="price">
+Rs. 2,500 / night
+</span>
+
+<button
+class="btn primary"
+style="width:100%;margin-top:12px"
+onclick="selectRoom('Deluxe Room')">
+
+Book Room
+
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=85"
+alt="Premium room">
+
+<div class="card-body">
+
+<h3>
+Premium Room
+</h3>
+
+<p>
+Spacious room for couples or business travelers.
+</p>
+
+<div class="tags">
+<span>AC</span>
+<span>Wi-Fi</span>
+<span>Smart TV</span>
+<span>Hot Water</span>
+<span>Breakfast</span>
+</div>
+
+<span class="price">
+Rs. 3,500 / night
+</span>
+
+<button
+class="btn primary"
+style="width:100%;margin-top:12px"
+onclick="selectRoom('Premium Room')">
+
+Book Room
+
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=85"
+alt="Family room">
+
+<div class="card-body">
+
+<h3>
+Family Room
+</h3>
+
+<p>
+Large room for a family or small group.
+</p>
+
+<div class="tags">
+<span>AC</span>
+<span>Wi-Fi</span>
+<span>TV</span>
+<span>2 Beds</span>
+<span>Hot Water</span>
+</div>
+
+<span class="price">
+Rs. 4,500 / night
+</span>
+
+<button
+class="btn primary"
+style="width:100%;margin-top:12px"
+onclick="selectRoom('Family Room')">
+
+Book Room
+
+</button>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- PHOTO GALLERY -->
+<section class="section gallery" id="gallery">
+
+<div class="title">
+
+<div class="eyebrow">
+LIFE AT LOVE POINT
+</div>
+
+<h2>
+Our Restaurant, Team & Guests
+</h2>
+
+<p>
+See the atmosphere, workers and guest
+experience at Love Point.
+</p>
+
+</div>
+
+<div class="gallery-grid">
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+alt="Restaurant interior">
+<div class="caption">
+Elegant Restaurant Dining
+</div>
+</figure>
+
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85"
+alt="Restaurant staff">
+<div class="caption">
+Professional Service Team
+</div>
+</figure>
+
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=900&q=85"
+alt="Worker serving guest">
+<div class="caption">
+Friendly Guest Service
+</div>
+</figure>
+
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85"
+alt="Guests dining">
+<div class="caption">
+Guests Enjoying Their Time
+</div>
+</figure>
+
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=85"
+alt="Chef working">
+<div class="caption">
+Fresh Food Preparation
+</div>
+</figure>
+
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=900&q=85"
+alt="Chef in kitchen">
+<div class="caption">
+Kitchen Team at Work
+</div>
+</figure>
+
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?auto=format&fit=crop&w=900&q=85"
+alt="Lounge interior">
+<div class="caption">
+Relaxing Lounge
+</div>
+</figure>
+
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=900&q=85"
+alt="Friends dining">
+<div class="caption">
+Good Food & Good Company
+</div>
+</figure>
+
+</div>
+</section>
+
+
+<!-- BOOKING -->
+<section class="section booking" id="booking">
+
+<div class="booking-wrap">
+
+<div class="title">
+
+<div class="eyebrow">
+ONLINE RESERVATION
+</div>
+
+<h2>
+Book a Table, Lounge or Room
+</h2>
+
+<p>
+Submit your request and receive
+instant confirmation.
+</p>
+
+</div>
+
+<form class="form" id="bookingForm">
+
+<div class="row">
+
+<div class="field">
+<label>Full Name</label>
+<input
+name="name"
+required
+placeholder="Your name">
+</div>
+
+<div class="field">
+<label>Phone</label>
+<input
+name="phone"
+required
+placeholder="98XXXXXXXX">
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="field">
+
+<label>Booking Type</label>
+
+<select name="type" id="bookingType">
+
+<option>Restaurant Table</option>
+<option>Premium Lounge</option>
+<option>Couple Corner</option>
+<option>Deluxe Room</option>
+<option>Premium Room</option>
+<option>Family Room</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>Date</label>
+
+<input
+type="date"
+name="date"
+id="date"
+required>
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="field">
+
+<label>Time / Check-in</label>
+
+<select name="time">
+
+<option>11:00 AM</option>
+<option>1:00 PM</option>
+<option>3:00 PM</option>
+<option>5:00 PM</option>
+<option>7:00 PM</option>
+<option>9:00 PM</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>Guests</label>
+
+<select name="guests">
+
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Special Request
+</label>
+
+<textarea
+name="message"
+rows="3"
+placeholder="Decoration, preferred table, extra bed, food preference...">
+</textarea>
+
+</div>
+
+
+<button
+class="btn primary"
+style="width:100%">
+
+✅ Confirm Booking
+
+</button>
+
+</form>
+
+</div>
+</section>
+
+
+<!-- EVENTS -->
+<section class="section events" id="events">
+
+<div class="title">
+
+<div class="eyebrow">
+FUNCTIONS & EVENTS
+</div>
+
+<h2>
+Organize Your Special Day
+</h2>
+
+<p>
+Professional arrangements for your
+important occasions.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="event">
+
+<div class="event-icon">
+🎂
+</div>
+
+<h3>
+Birthday Party
+</h3>
+
+<p>
+Decoration, cake, food and dedicated seating.
+</p>
+
+<button onclick="openEvent('Birthday Party')">
+Plan Birthday
+</button>
+
+</div>
+
+
+<div class="event">
+
+<div class="event-icon">
+💍
+</div>
+
+<h3>
+Wedding / Reception
+</h3>
+
+<p>
+Customized menu, decoration and guest seating.
+</p>
+
+<button onclick="openEvent('Wedding / Reception')">
+Plan Wedding
+</button>
+
+</div>
+
+
+<div class="event">
+
+<div class="event-icon">
+💼
+</div>
+
+<h3>
+Corporate Event
+</h3>
+
+<p>
+Meetings, business lunches and team dinners.
+</p>
+
+<button onclick="openEvent('Corporate Event')">
+Plan Corporate
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CTA -->
+<div class="cta">
+
+<div>
+
+<div class="eyebrow">
+MAKE IT MEMORABLE
+</div>
+
+<h2>
+Planning a function?
+</h2>
+
+<p>
+Tell us your date, guest count
+and requirements.
+</p>
+
+</div>
+
+<button
+class="btn outline"
+onclick="openEvent('Custom Function')">
+
+🎉 Organize Function
+
+</button>
+
+</div>
+
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+
+<div class="title">
+
+<div class="eyebrow">
+CONTACT
+</div>
+
+<h2>
+Love Point Restaurant
+</h2>
+
+</div>
+
+
+<div class="contact">
+
+<div class="contact-box">
+
+<h3>📍 Location</h3>
+
+<p>
+Biratnagar, Morang, Nepal
+</p>
+
+<h3>📞 Phone</h3>
+
+<p>
++977 98XXXXXXXX
+</p>
+
+<h3>✉ Email</h3>
+
+<p>
+hello@lovepointrestaurant.com
+</p>
+
+</div>
+
+
+<div class="contact-box">
+
+<h3>🕐 Opening Hours</h3>
+
+<p>
+Restaurant: 10:00 AM – 10:00 PM
+</p>
+
+<p>
+Lounge: 12:00 PM – 11:00 PM
+</p>
+
+<p>
+Rooms: 24-hour support
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+© 2026 Love Point Restaurant
+</p>
+
+<a onclick="adminLogin()">
+🔐 Admin Dashboard
+</a>
+
+</footer>
+
+
+<!-- FUNCTION MODAL -->
+<div class="modal" id="eventModal">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('eventModal')">
+×
+</button>
+
+<h2>
+🎉 Function Request
+</h2>
+
+<p
+id="eventTitle"
+style="margin:10px 0 20px">
+</p>
+
+
+<form
+class="form"
+id="eventForm">
+
+<input
+type="hidden"
+name="eventType"
+id="eventType">
+
+
+<div class="row">
+
+<div class="field">
+<label>Name</label>
+<input name="name" required>
+</div>
+
+<div class="field">
+<label>Phone</label>
+<input name="phone" required>
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="field">
+<label>Event Date</label>
+<input
+name="date"
+type="date"
+required>
+</div>
+
+<div class="field">
+<label>Guests</label>
+<input
+name="guests"
+type="number"
+min="5"
+required>
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Estimated Budget
+</label>
+
+<select name="budget">
+
+<option>Under Rs. 25,000</option>
+<option>Rs. 25,000 – 50,000</option>
+<option>Rs. 50,000 – 1,00,000</option>
+<option>Rs. 1,00,000+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Requirements
+</label>
+
+<textarea
+name="message"
+rows="3"
+placeholder="Decoration, food, music, stage, seating...">
+</textarea>
+
+</div>
+
+
+<button
+class="btn primary"
+style="width:100%">
+
+📩 Send Function Request
+
+</button>
+
+</form>
+
+</div>
+</div>
+
+
+<!-- SUCCESS MODAL -->
+<div class="modal" id="successModal">
+
+<div class="modal-box">
+
+<div style="text-align:center;padding:25px">
+
+<div style="font-size:60px">
+💖
+</div>
+
+<h2>
+Booking Confirmed!
+</h2>
+
+<p id="successText">
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="closeModal('successModal')">
+
+Done
+
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ADMIN DASHBOARD -->
+<div class="modal" id="adminModal">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('adminModal')">
+×
+</button>
+
+<div id="adminContent">
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+const STORAGE_KEY =
+"lovePointRestaurantBookings";
+
+const today =
+new Date()
+.toISOString()
+.split("T")[0];
+
+document.getElementById("date").min =
+today;
+
+
+/* NAVIGATION */
+
+function go(id){
+
+document
+.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* ESCAPE HTML */
+
+function esc(value){
+
+return String(value ?? "")
+.replace(/[&<>"']/g,function(m){
+
+return {
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[m];
+
+});
+
+}
+
+
+/* MODAL */
+
+function closeModal(id){
+
+document
+.getElementById(id)
+.classList
+.remove("show");
+
+}
+
+
+/* STORAGE */
+
+function getBookings(){
+
+return JSON.parse(
+localStorage.getItem(STORAGE_KEY)
+|| "[]"
+);
+
+}
+
+
+function saveBookings(data){
+
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(data)
+);
+
+}
+
+
+/* ROOM */
+
+function selectRoom(room){
+
+document.getElementById(
+"bookingType"
+).value = room;
+
+go("booking");
+
+}
+
+
+/* BOOKING */
+
+document
+.getElementById("bookingForm")
+.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+const data =
+Object.fromEntries(
+new FormData(this)
+);
+
+const booking = {
+
+id:Date.now(),
+
+kind:"Booking",
+
+name:data.name,
+
+phone:data.phone,
+
+type:data.type,
+
+date:data.date,
+
+time:data.time,
+
+guests:data.guests,
+
+message:data.message,
+
+status:"Confirmed"
+
+};
+
+const list =
+getBookings();
+
+list.push(booking);
+
+saveBookings(list);
+
+document.getElementById(
+"successText"
+).innerHTML =
+
+`
+Thank you
+<b>${esc(booking.name)}</b>!<br><br>
+
+Your
+<b>${esc(booking.type)}</b>
+booking has been recorded.<br><br>
+
+Date:
+<b>${esc(booking.date)}</b><br>
+
+Time:
+<b>${esc(booking.time)}</b><br>
+
+Guests:
+<b>${esc(booking.guests)}</b>
+`;
+
+document
+.getElementById("successModal")
+.classList
+.add("show");
+
+this.reset();
+
+});
+
+
+/* FUNCTION */
+
+function openEvent(type){
+
+document
+.getElementById("eventModal")
+.classList
+.add("show");
+
+document.getElementById(
+"eventType"
+).value = type;
+
+document.getElementById(
+"eventTitle"
+).innerHTML =
+"Planning: <b>"
++
+esc(type)
++
+"</b>";
+
+}
+
+
+document
+.getElementById("eventForm")
+.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+const data =
+Object.fromEntries(
+new FormData(this)
+);
+
+const booking = {
+
+id:Date.now(),
+
+kind:"Function",
+
+eventType:data.eventType,
+
+name:data.name,
+
+phone:data.phone,
+
+date:data.date,
+
+guests:data.guests,
+
+budget:data.budget,
+
+message:data.message,
+
+status:"New Request"
+
+};
+
+const list =
+getBookings();
+
+list.push(booking);
+
+saveBookings(list);
+
+closeModal("eventModal");
+
+document.getElementById(
+"successText"
+).innerHTML =
+
+`
+Thank you
+<b>${esc(booking.name)}</b>!<br><br>
+
+Your
+<b>${esc(booking.eventType)}</b>
+request has been received.<br><br>
+
+Event Date:
+<b>${esc(booking.date)}</b><br>
+
+Guests:
+<b>${esc(booking.guests)}</b>
+`;
+
+document
+.getElementById("successModal")
+.classList
+.add("show");
+
+this.reset();
+
+});
+
+
+/* ADMIN LOGIN */
+
+function adminLogin(){
+
+const username =
+prompt("Admin username:");
+
+if(username === null)
+return;
+
+const password =
+prompt("Admin password:");
+
+if(password === null)
+return;
+
+
+/*
+DEMO ADMIN LOGIN
+
+Username: admin
+Password: admin123
+*/
+
+if(
+username === "admin"
+&&
+password === "admin123"
+){
+
+showAdmin();
+
+}
+else{
+
+alert(
+"❌ Invalid admin username or password!"
+);
+
+}
+
+}
+
+
+/* DELETE */
+
+function deleteBooking(id){
+
+const updated =
+getBookings()
+.filter(x => x.id !== id);
+
+saveBookings(updated);
+
+showAdmin();
+
+}
+
+
+/* ADMIN DASHBOARD */
+
+function showAdmin(){
+
+const list =
+getBookings();
+
+const normal =
+list.filter(
+x => x.kind === "Booking"
+);
+
+const functions =
+list.filter(
+x => x.kind === "Function"
+);
+
+
+let html = `
+
+<div class="admin">
+
+<h2>
+🔐 Love Point Restaurant Dashboard
+</h2>
+
+<p style="color:#746970;margin-top:5px">
+
+Manage restaurant, lounge, room
+and function reservations.
+
+</p>
+
+
+<div class="stats">
+
+<div class="stat">
+<b>${list.length}</b>
+<small>Total Requests</small>
+</div>
+
+<div class="stat">
+<b>${normal.length}</b>
+<small>Bookings</small>
+</div>
+
+<div class="stat">
+<b>${functions.length}</b>
+<small>Functions</small>
+</div>
+
+<div class="stat">
+<b>
+${new Set(
+list.map(x=>x.date)
+.filter(Boolean)
+).size}
+</b>
+<small>Active Dates</small>
+</div>
+
+</div>
+
+
+<div class="admin-grid">
+
+
+<div class="panel">
+
+<h3>
+📋 Recent Reservations
+</h3>
+`;
+
+
+if(list.length === 0){
+
+html += `
+
+<div class="booking-item">
+
+No bookings yet.
+
+</div>
+
+`;
+
+}
+
+
+list
+.slice()
+.reverse()
+.forEach(function(x){
+
+if(x.kind === "Function"){
+
+html += `
+
+<div class="booking-item">
+
+<b>
+🎉 ${esc(x.eventType)}
+</b>
+
+<br>
+
+<b>Guest:</b>
+${esc(x.name)}
+
+<br>
+
+<b>Phone:</b>
+${esc(x.phone)}
+
+<br>
+
+<b>Date:</b>
+${esc(x.date)}
+
+<br>
+
+<b>Guests:</b>
+${esc(x.guests)}
+
+<br>
+
+<b>Budget:</b>
+${esc(x.budget)}
+
+<br>
+
+<b>Status:</b>
+${esc(x.status)}
+
+${x.message ?
+"<br><b>Requirements:</b> "
++
+esc(x.message)
+:
+""}
+
+<br>
+
+<button
+class="delete"
+onclick="deleteBooking(${x.id})">
+
+Delete
+
+</button>
+
+</div>
+
+`;
+
+}
+
+else{
+
+html += `
+
+<div class="booking-item">
+
+<b>
+🍽️ ${esc(x.type)}
+</b>
+
+<br>
+
+<b>Guest:</b>
+${esc(x.name)}
+
+<br>
+
+<b>Phone:</b>
+${esc(x.phone)}
+
+<br>
+
+<b>Date:</b>
+${esc(x.date)}
+
+<br>
+
+<b>Time:</b>
+${esc(x.time)}
+
+<br>
+
+<b>Guests:</b>
+${esc(x.guests)}
+
+<br>
+
+<b>Status:</b>
+${esc(x.status)}
+
+${x.message ?
+"<br><b>Request:</b> "
++
+esc(x.message)
+:
+""}
+
+<br>
+
+<button
+class="delete"
+onclick="deleteBooking(${x.id})">
+
+Delete
+
+</button>
+
+</div>
+
+`;
+
+}
+
+});
+
+
+html += `
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+📊 Service Overview
+</h3>
+
+<br>
+
+<p>
+Restaurant Service
+</p>
+
+<div class="bar">
+<i style="width:90%"></i>
+</div>
+
+
+<p>
+Guest Satisfaction
+</p>
+
+<div class="bar">
+<i style="width:95%"></i>
+</div>
+
+
+<p>
+Lounge Service
+</p>
+
+<div class="bar">
+<i style="width:85%"></i>
+</div>
+
+
+<p>
+Room Facilities
+</p>
+
+<div class="bar">
+<i style="width:88%"></i>
+</div>
+
+
+<p>
+Event Management
+</p>
+
+<div class="bar">
+<i style="width:78%"></i>
+</div>
+
+
+<div class="notice">
+
+💡 Replace the demo photos,
+prices, phone number and email
+with your real restaurant information.
+
+</div>
+
+
+<button
+class="btn primary"
+onclick="closeModal('adminModal')">
+
+Close Dashboard
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+
+document.getElementById(
+"adminContent"
+).innerHTML = html;
+
+
+document.getElementById(
+"adminModal"
+).classList
+.add("show");
+
+}
+
+
+/* CLOSE MODAL OUTSIDE */
+
+window.onclick =
+function(e){
+
+if(
+e.target.classList
+.contains("modal")
+){
+
+e.target
+.classList
+.remove("show");
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
+```
